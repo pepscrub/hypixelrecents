@@ -4,9 +4,6 @@ const router = express.Router();
 const { DataBase } = require('../db');
 const DB = new DataBase();
 const {config} = require('../index');
-
-console.log(config)
-
 const key = config.APIKEY;
 const url = config.NODE_ENV === 'dev' ? 'http://localhost:8080/' : `http://freeman.dev/`;
 
