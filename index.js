@@ -8,7 +8,7 @@ const cors = require('cors');
 const mongo = require('mongodb');
 const middlewares = require('./api/middlewares');
 const path = require('path');
-const port = 5000;
+const port = process.env.port || 5000;
 
 module.exports.config = {
     APIKEY: "f2b0c24f-916f-47be-bd62-fbab213699ae",
