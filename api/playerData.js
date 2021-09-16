@@ -28,6 +28,7 @@ DB.conn().then(async ()=>
     dbConnected = true;
 }).catch(err=>
 {
+    console.log(err)
     // Can't connect to DB no point
     // booting up
     process.exit(-27);

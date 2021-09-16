@@ -30,9 +30,9 @@ const server = app.listen(port, ()=>{
 app.use(express.static(path.join(__dirname, "/build")))
 // Basic web server setup (serves static files)
 app.set('trust proxy', 1);
-// app.use(morgan('dev'));
-// app.use(helmet());
-// app.use(cors());
+app.use(morgan('dev'));
+app.use(helmet());
+app.use(cors());
 
 app.use('/api/v1', api)
 
