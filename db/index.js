@@ -3,9 +3,10 @@ const mongo = require('mongodb');
 
 // Using mongoDB
 const color = require('chalk');
-const password = process.env.DBPASS || "DB password here";
-const username = process.env.DBNAME || "DB Name here";
-const clustername = process.env.DBCLUSTER || "DB cluster here";
+const {config} = require('../index')
+const password = config.DBPASS || "DB password here";
+const username = config.DBNAME || "DB Name here";
+const clustername = config.DBCLUSTER || "DB cluster here";
 
 const url = `mongodb+srv://${username}:${password}@cluster0.khl6s.mongodb.net/hypixelapi?retryWrites=true&w=majority`
 
