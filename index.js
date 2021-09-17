@@ -8,23 +8,23 @@ const cors = require('cors');
 const mongo = require('mongodb');
 const middlewares = require('./api/middlewares');
 const path = require('path');
-const port = process.env.port || 5000;
 
 module.exports.config = {
-    APIKEY: "f2b0c24f-916f-47be-bd62-fbab213699ae",
-    DBPASS: "4c7gFDdn6u7ieWJYe72VZedd9auZB6xb2vaVpKDecTU6v2x5rUo",
-    DBNAME: "cummuncher6942069",
-    DBCLUSTER: "hypixelapi",
-    PORT: 8080,
-    NODE_ENV: "dev"
+    APIKEY: process.env.APIKEY,
+    DBPASS: process.env.DBPASS,
+    DBNAME: process.env.DBNAME,
+    DBCLUSTER: process.env.DBCLUSTER,
+    PORT: process.env.PORT || 8080,
+    NODE_ENV: process.env.NODE_ENV || "production"
 };
 
 
 const api = require('./api')
 
+console.log(this.config.PORT)
 
-const server = app.listen(port, ()=>{
-    console.log(color.blue.bold(`[nodeJS]`), `Server is listening on port: ${port}`);
+const server = app.listen(this.config.PORT, ()=>{
+    console.log(color.blue.bold(`[nodeJS]`), `Server is listening on port: ${this.config.PORT}`);
 });
 
 app.use(express.static(path.join(__dirname, "/build")))
