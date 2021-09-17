@@ -26,7 +26,7 @@ const server = app.listen(this.config.PORT, ()=>{
     console.log(color.blue.bold(`[nodeJS]`), `Server is listening on port: ${this.config.PORT}`);
 });
 
-app.use(express.static(path.join(__dirname, "/build")))
+app.use(express.static(path.join(__dirname, "/builds")))
 // Basic web server setup (serves static files)
 app.set('trust proxy', 1);
 app.use(morgan('dev'));
@@ -36,9 +36,9 @@ app.use(cors());
 app.use('/api/v1', api)
 
 app.get('/*', (req, res) =>{
-    console.log(path.join(__dirname, '../frontend/build/index.html'))
+    console.log(path.join(__dirname, '../frontend/builds/index.html'))
     // res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
-    res.sendFile(path.join(__dirname, '/build/index.html'));
+    res.sendFile(path.join(__dirname, '/builds/index.html'));
 })
 
 app.use(middlewares.notFound);
