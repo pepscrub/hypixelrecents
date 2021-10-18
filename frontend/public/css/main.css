@@ -1,0 +1,102 @@
+:root{
+    --dark-primary: #0a0a0b;
+    --dark-secondary: #141416;
+    --dark-content: #17171a;
+    --dark-chip: #1a1a1d;
+    --dark-border: #212125;
+}
+
+.card-reveal::-webkit-scrollbar {
+    width: 1em;
+}
+.card-reveal::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.collection .collection-item.avatar{
+    padding-left: 1rem;
+}
+#main-modal.modal.bottom-sheet
+{
+    top: 0 !important;
+    max-height: 100%;
+}
+.card{
+    margin: 0;
+}
+.center-loader
+{
+    margin: 0 auto;
+    display: flex;
+}
+
+.collapsible-body
+{
+    padding: 0;
+}
+
+.chips.chips-autocomplete .autocomplete-content.dropdown-content
+{
+    width:100% !important; /* have to use important here :(*/
+}
+.autocomplete-content.dropdown-content li
+{
+    display: flex;
+    width: 100%;
+}
+
+@media (prefers-color-scheme: dark)
+{
+    body, .modal.bottom-sheet, .collapsible-header, #root .chips .input,
+    .card-content, .card .card-reveal{
+        color: #ffffff;
+        background-color: var(--dark-primary);
+    }
+    
+    .autocomplete-content > li, .autocomplete-content.dropdown-content
+    {
+        transition: background-color 125ms linear;
+        background-color: var(--dark-primary);
+        color: white;
+    }
+    
+    .autocomplete-content > li:hover
+    {
+        background-color: var(--dark-secondary);
+        color: white;
+    }
+    .autocomplete-content > li.active
+    {
+        background-color: var(--dark-secondary);
+        color: white;
+    }
+    
+    .collection .collection-item.avatar{
+        background-color: var(--dark-content);
+        color: white;
+    }
+    
+    #root .row .chips .input{
+        color: #ffffff;
+    }
+    .chip
+    {
+        color: #ffffff93;
+        background-color: var(--dark-chip);
+    }
+
+    .modal-content .collapsible
+    {
+        border: 1px solid var(--dark-border);
+    }
+    .modal-content .collapsible li .collapsible-header
+    {
+        border-bottom: 1px solid var(--dark-border);
+    }
+    .collapsible-body
+    {
+        border-bottom: 1px solid var(--dark-border);
+    }
+
+}
