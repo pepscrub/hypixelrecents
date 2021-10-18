@@ -24,6 +24,9 @@
     "helmet": "^4.6.0",
     "mongodb": "^3.6.10",
     "morgan": "^1.10.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "redoc": "^2.0.0-rc.56",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
   }
 }

@@ -10,7 +10,7 @@ function notFound(req, res, next)
 
 function errorHandler(err, req, res, next)
 {
-    const statusCode = res.statusCode !== 200 ? res.statusCode : 500;
+    const statusCode = res.statusCode !== 200 ? res.statusCode : 400;
     res.status(statusCode);
     // Some code so we don't spit out error codes
     // in production

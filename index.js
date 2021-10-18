@@ -6,8 +6,27 @@ const morgan = require('morgan');             // Man in the middle
 const helmet = require('helmet');             // input parser
 const cors = require('cors');
 const mongo = require('mongodb');
+
 const middlewares = require('./api/middlewares');
 const path = require('path');
+
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
+
+const swaggerOpt = {
+    swaggerDefinition:{
+        title: "Hypixel Recents API",
+        description: "API to fetch recently played games from Hypixel.",
+        contact:{
+            name: "Brendan Freeman"
+        },
+        servers: ["http://localhost:8080"]
+    },
+
+    apis: ["./api/*.js"]
+}
+
+const doc = swaggerJSDoc(swaggerOpt);
 
 module.exports.config = {
     APIKEY: process.env.APIKEY,
@@ -33,6 +52,8 @@ app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors());
 
+// 
+app.use('/api/doc', swaggerUI.serve, swaggerUI.setup(doc))
 app.use('/api/v1', api)
 
 app.get('/*', (req, res) =>{
