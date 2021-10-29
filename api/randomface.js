@@ -9,8 +9,8 @@ router.get('/', async(req,res)=>
     const cursor = await DB.tablequery(`settings`);
     const array = await cursor.toArray();
 
-    const face = array[0]['faces'][Math.floor(Math.random() * array[0]['faces'].length)];
-    const reaction = array[0]['reactions'][Math.floor(Math.random() * array[0]['reactions'].length)];
+    const face = array??[0]??['faces'][Math.floor(Math.random() * array[0]['faces'].length)];
+    const reaction = array??[0]??['reactions'][Math.floor(Math.random() * array[0]['reactions'].length)];
     res.json({"face":face,"reaction":reaction})
 })
 

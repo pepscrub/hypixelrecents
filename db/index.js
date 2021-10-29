@@ -8,7 +8,7 @@ const password = config.DBPASS || "DB password here";
 const username = config.DBNAME || "DB Name here";
 const clustername = config.DBCLUSTER || "DB cluster here";
 
-const url = `mongodb+srv://${username}:${password}@cluster0.khl6s.mongodb.net/hypixelapi?retryWrites=true&w=majority`
+const url = `mongodb+srv://${username}:${password}@cluster0.1m7kh.mongodb.net/hypixelapi?retryWrites=true&w=majority`
 
 /**
  * @classdesc Wrapper for MongoDB because I hate mongoose

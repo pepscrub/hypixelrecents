@@ -21,6 +21,8 @@ DB.conn().then(async ()=>
     if(!coll) process.exit(-1);
     const doc = await coll.toArray();
 
+    const tables = await DB.tables();
+
     whitelist = doc[0]['whitelist'];
     dbConnected = true;
 }).catch(err=>
@@ -174,6 +176,9 @@ router.get('/:id', limiter, speedLimiter, async(req, res, next)=>
             const dummy = [];
             const active = await fetch(`https://api.hypixel.net/status?key=${key}&uuid=${uuid}`).then(res=>res.json())
             const prev = await fetch(`${baseURL}${params}`).then(res=>res.json()).then(res=>res['games'])
+
+            console.log(prev)
+
             dummy.push(active['session']);
             dummy.push(prev);
             return dummy.flat()
